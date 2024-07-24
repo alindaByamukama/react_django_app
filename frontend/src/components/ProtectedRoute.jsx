@@ -1,10 +1,13 @@
 import api from "../api"
 import { REFRESH_TOKEN, ACCESS_TOKEN } from "../constants"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 function ProtectedRoute({ children }) {
     const [isAuthorized, setIsAuthorized] = useState(null)
-
+    useEffect(() => {
+        auth().catch(() => setIsAuthorized(false))
+    }, [])
+    
     const refreshToken = async () => {
         const refreshToken = localStorage.getItem(REFRESH_TOKEN)
         try {
