@@ -12,4 +12,10 @@ function ProtectedRoute({ children }) {
     const auth = async () => {
 
     }
+
+    if (isAuthorized === null) {
+        return <div>Loading...</div>
+    }
+
+    return isAuthorized ? children : <Navigate to="/login" />
 }
