@@ -5,5 +5,9 @@ import { useState } from "react"
 function ProtectedRoute({ children }) {
     const [isAuthorized, setIsAuthorized] = useState(null)
 
+    const refreshToken = async () => {
+
+    }
+
     
 }
