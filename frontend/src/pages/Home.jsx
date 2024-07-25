@@ -29,6 +29,16 @@ function Home() {
         getNotes()
     }
 
+    const createNote = (e) => {
+        e.preventDefault()
+        api.post("/api/notes/", { content, title })
+            .then((res) => {
+                if (res.status === 201) alert("Note created!")
+                else alert("Failed to make note.")
+            }).catch((err) => alert(err))
+            getNotes()
+    }
+
     return <div>Home</div>
 }
 
