@@ -27,9 +27,9 @@ function Home() {
       .then((res) => {
         if (res.status === 204) alert('Notes deleted!')
         else alert('Failed to delete note.')
+        getNotes()
       })
       .catch((error) => alert(error))
-    getNotes()
   }
 
   const createNote = (e) => {
@@ -39,9 +39,9 @@ function Home() {
       .then((res) => {
         if (res.status === 201) alert('Note created!')
         else alert('Failed to make note.')
+        getNotes()
       })
       .catch((err) => alert(err))
-    getNotes()
   }
 
   return (
@@ -70,6 +70,8 @@ function Home() {
           value={content}
           onChange={(e) => setContent(e.target.value)}
         ></textarea>
+        <br />
+        <input type="submit" value="Submit" />
       </form>
     </div>
   )
