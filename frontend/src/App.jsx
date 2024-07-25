@@ -16,13 +16,18 @@ function RegisterAndLogout() {
   return <Register />
 }
 
-
-
 function App() {
   return (
-    <>
-
-    </>
+    <BrowserRouter>
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        }
+      />
+    </BrowserRouter>
   )
 }
 
