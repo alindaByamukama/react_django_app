@@ -39,7 +39,24 @@ function Home() {
             getNotes()
     }
 
-    return <div>Home</div>
+    return <div>
+        <div>
+            <h2>Notes</h2>
+        </div>
+        <h2>Create a Note</h2>
+        <form onSubmit={createNote}>
+            <label htmlFor="title">Title:</label>
+            <br />
+            <input 
+            type="text"
+            id="title"
+            name="title"
+            required
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+            />
+        </form>
+    </div>
 }
 
 export default Home
